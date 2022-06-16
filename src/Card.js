@@ -7,7 +7,7 @@ import './Card.css';
 
 // Destructuring props inside the parameter
 // Inside return is jsx not HTML.
-const Card = ({ id, name, quote }) => {
+const Card = ({ id, name, email }) => {
     return (
         <div className='tc dib br3 pa3 ma2 grow bw2 shadow-5 card'>
             <img 
@@ -15,7 +15,7 @@ const Card = ({ id, name, quote }) => {
                 src={`https://robohash.org/${id}?size=200x200`} 
             />
             <h2>{name}</h2>
-            <p>{quote}</p>
+            <p>{email}</p>
         </div>
     );
 }

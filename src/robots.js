@@ -1,52 +1,62 @@
 export const robots = [
   {
     id: 1,
-    name: 'Lore',
-    quote: '"your chest is like the netherlands, its flat"'
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz'
   },
   {
     id: 2,
-    name: 'KapiteinKoek',
-    quote: '"90% less jitter on your cumshot"'
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 3,
-    name: 'Kruegerz',
-    quote: '"mines?"'
+    name: 'Clementine Bauch',
+    username: 'Samantha',
+    email: 'Nathan@yesenia.net'
   },
   {
     id: 4,
-    name: 'Huskarr',
-    quote: '"apparently ive mounted this dude"'
+    name: 'Patricia Lebsack',
+    username: 'Karianne',
+    email: 'Julianne.OConner@kory.org'
   },
   {
     id: 5,
-    name: 'xedeon',
-    quote: '"back in my day"'
+    name: 'Chelsey Dietrich',
+    username: 'Kamren',
+    email: 'Lucio_Hettinger@annie.ca'
   },
   {
     id: 6,
-    name: 'Morgif',
-    quote: '"boom, pussy for life"'
+    name: 'Mrs. Dennis Schulist',
+    username: 'Leopoldo_Corkery',
+    email: 'Karley_Dach@jasper.info'
   },
   {
     id: 7,
-    name: 'Analus',
-    quote: '"i dont have urine"'
+    name: 'Kurtis Weissnat',
+    username: 'Elwyn.Skiles',
+    email: 'Telly.Hoeger@billy.biz'
   },
   {
     id: 8,
-    name: 'Kira',
-    quote: '"it\'s the power bottom, but the bottom is complaining"'
+    name: 'Nicholas Runolfsdottir V',
+    username: 'Maxime_Nienow',
+    email: 'Sherwood@rosamond.me'
   },
   {
     id: 9,
-    name: 'WATER',
-    quote: '"your daughter is female"'
+    name: 'Glenna Reichert',
+    username: 'Delphine',
+    email: 'Chaim_McDermott@dana.io'
   },
   {
     id: 10,
-    name: 'Aayra',
-    quote: '"look, he is wearing a turtleneck made out of foreskin"'
+    name: 'Clementina DuBuque',
+    username: 'Moriah.Stanton',
+    email: 'Rey.Padberg@karina.biz'
   }
 ];

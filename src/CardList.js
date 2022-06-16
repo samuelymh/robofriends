@@ -5,11 +5,11 @@ import Card from './Card';
 const CardList = ({ robots }) => {
     const cardArray = robots.map(robot => {
         return (
-            <Card 
+            <Card
                 key={robot.id} 
                 id={robot.id} 
                 name={robot.name} 
-                quote={robot.quote}
+                email={robot.email}
             />
         );
     });
