@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-import { robots } from './robots';
+import Scroll from './Scroll';
 import './App.css';
 
 
+// Smart components typically have class syntax and have state
 class App extends Component {
     // Constructor to store our states(2, robots and searchField).
     constructor(){
         super();
         this.state = {
-            robots: robots,
+            robots: [],
             searchField: ''
         }
+    }
+
+    componentDidMount(){
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => this.setState({ robots: users}));
     }
 
     // We use arrow functions to ensure that 'this' reference to this parent object
@@ -28,13 +35,19 @@ class App extends Component {
             return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase());
         });
 
-        return (
-            <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={this.onSearchChange}/>
-                <CardList robots={filteredRobots}/>
-            </div>
-        );
+        if (this.state.robots.length === 0){
+            return <h1>Loading...</h1>
+        } else {
+            return (
+                <div className='tc'>
+                    <h1 className='f1'>RoboFriends</h1>
+                    <SearchBox searchChange={this.onSearchChange}/>
+                    <Scroll>
+                        <CardList robots={filteredRobots}/>
+                    </Scroll>
+                </div>
+            );
+        }
     }
 }
 
