@@ -20,5 +20,6 @@ Currently hosted on [Netlify](https://weird-robofriends.netlify.app/)
 6. [Nuances of 'this' when using arrow functions.](https://reactjs.org/docs/handling-events.html)
 7. How to organize files into separate folders for React components and React containers (for smart components).
 8. Concept of smart React components which has class syntax and typically has a state.
-9. How to install third-party libraries using npm.
-10. How to optimize project by minification using npm build command and deploy to a web hosting provider (Netlify).
+9. How to catch errors within components using an [error boundary component](https://reactjs.org/docs/error-boundaries.html)
+10. How to install third-party libraries using npm.
+11. How to optimize project by minification using npm build command and deploy to a web hosting provider (Netlify).
