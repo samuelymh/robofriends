@@ -18,9 +18,10 @@ class App extends Component {
     }
 
     componentDidMount(){
+        // ajax request using fetch api which returns a promise
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
-            .then(users => this.setState({ robots: users}));
+            .then(users => this.setState({ robots: users }));
     }
 
     // We use arrow functions to ensure that 'this' reference to this parent object
