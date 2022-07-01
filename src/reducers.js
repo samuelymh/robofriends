@@ -6,7 +6,6 @@ const initialState = {
 
 // This is a reducer - also a pure function
 export const searchRobots = (state=initialState, action={}) => {
-  // console.log(action.type);
   switch(action.type) {
     case CHANGE_SEARCH_FIELD:
       // Two variants (The second version uses spread operator)
