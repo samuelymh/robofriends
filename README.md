@@ -23,3 +23,5 @@ Currently hosted on [Netlify](https://weird-robofriends.netlify.app/)
 9. How to catch errors within components using an [error boundary component.](https://reactjs.org/docs/error-boundaries.html)
 10. How to install third-party libraries using npm.
 11. How to optimize project by minification using npm build command and deploy to a web hosting provider (Netlify).
+12. How to use hooks in components.
+13. How to use redux for maintainable data flow.
