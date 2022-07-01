@@ -13,6 +13,9 @@ function App() {
     // Parameter of useState is default value of stateVariable
     const [robots, setRobots] = useState([]);
     const [searchField, setSearchField] = useState('');
+    const [count, setCount] = useState(0);
+
+
 
     // useEffect hook - gets called after each render.
     // useEffect hook is a combo of componentDidMount, componentDidUpdate, and componentWillUpdate
@@ -22,12 +25,17 @@ function App() {
             .then(response => response.json())
             .then(users => {setRobots(users)})
             .catch(err => console.log(err, ": Error in ajax request."))
-        // console.log(robots, searchField);
     }, []);
     // Second parameter basically tells useEffect to be called only when one of the objects in array
     // has changed. So everytime an empty array is changed (which is never), useEffect gets called.
     // This is a shortcut way to making componentDidMount.
     // TL;DR we only want useEffect to fetch when it FIRST renders (componentDidMount).
+
+    // only runs if count changes
+    useEffect(() => {
+        console.log(count);
+    }, [count]);
+
 
     // We use arrow functions to ensure that 'this' reference to this parent object
     // and not from where it was called from.
@@ -50,6 +58,7 @@ function App() {
         return (
             <div className='tc'>
                 <h1 className='f1'>RoboFriends</h1>
+                <button onClick={() => setCount(count + 1)}>Click Me!</button>
                 <SearchBox searchChange={onSearchChange}/>
                 <Scroll>
                     <ErrorBoundary>
