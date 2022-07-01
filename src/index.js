@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './containers/App';
 import reportWebVitals from './reportWebVitals';
@@ -9,7 +10,10 @@ import 'tachyons';
 
 import { searchRobots } from './reducers';
 
-const store = createStore(searchRobots);
+// logger is a middleware that helps us log state changes on console
+const logger = createLogger();
+// Then we pass our logger as second parameter in createStore
+const store = createStore(searchRobots, applyMiddleware(logger));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
