@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
+import { setSearchField } from '../actions';
 
-function App() {
+// This is a standard naming, but u can name it wtv.
+const mapStateToProps = state => {
+    return {
+        searchField: state.searchField
+    }
+}
+
+// dispatch is what triggers the action
+const mapDispatchToProps = dispatch => {
+    return {
+        onSearchChange: event => dispatch(setSearchField(event.target.value))
+    }
+}
+
+function App(props) {
     // useState hook
     // Array destruturing. useState returns a pair.
     // Naming convention is [stateVariable, setStateVariable]
     // Parameter of useState is default value of stateVariable
     const [robots, setRobots] = useState([]);
-    const [searchField, setSearchField] = useState('');
-    const [count, setCount] = useState(0);
-
 
 
     // useEffect hook - gets called after each render.
@@ -31,23 +44,7 @@ function App() {
     // This is a shortcut way to making componentDidMount.
     // TL;DR we only want useEffect to fetch when it FIRST renders (componentDidMount).
 
-    // only runs if count changes
-    useEffect(() => {
-        console.log(count);
-    }, [count]);
-
-
-    // We use arrow functions to ensure that 'this' reference to this parent object
-    // and not from where it was called from.
-    const onSearchChange = event => {
-        console.log(event.target.value); // Inputted data
-        // We do this everytime we want to change state. setState() 
-        // this.setState({ searchField: event.target.value });
-
-        setSearchField(event.target.value);
-    }
-
-    // const { robots, searchField } = this.state;
+    const { searchField, onSearchChange } = props;
     const filteredRobots = robots.filter(robot => {
         return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
@@ -58,7 +55,6 @@ function App() {
         return (
             <div className='tc'>
                 <h1 className='f1'>RoboFriends</h1>
-                <button onClick={() => setCount(count + 1)}>Click Me!</button>
                 <SearchBox searchChange={onSearchChange}/>
                 <Scroll>
                     <ErrorBoundary>
@@ -71,4 +67,8 @@ function App() {
     }
 }
 
-export default App;
+// connect is a higher order function which returns another function,
+// hence the weird syntax below.
+// This is how we make App subscribe and listen to any changes that happens
+// in the redux store.
+export default connect(mapStateToProps, mapDispatchToProps)(App);
